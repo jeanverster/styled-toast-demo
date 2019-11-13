@@ -4394,10 +4394,10 @@ react-native-branch@~3.0.1:
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-3.0.1.tgz#5b07b61cbd290168cd3c3662e017ebe0f356d2ca"
   integrity sha512-vbcYxPZlpF5f39GAEUF8kuGQqCNeD3E6zEdvtOq8oCGZunHXlWlKgAS6dgBKCvsHvXgHuMtpvs39VgOp8DaKig==
 
-react-native-styled-toast@^1.0.11:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/react-native-styled-toast/-/react-native-styled-toast-1.0.11.tgz#0cd241bb8f15bb2c47f91c0ae0b2dc6b68d5455e"
-  integrity sha512-DDSwyibLavUMcv8Uyq9wn2bx39QYqwtcRgcGXPEvzfa4OPeFriJjkgZ6Dvgqk4G9fjLrmCed24O8lFV/g+j4lQ==
+react-native-styled-toast@^1.0.12:
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/react-native-styled-toast/-/react-native-styled-toast-1.0.14.tgz#6bd6b5fef248a34209d21062a4c5f7868e7ee728"
+  integrity sha512-r6o7ZSzFlhhEltelBNyMcV4M8PMtVtCS3OwNoS4jSUi56ZiEkUITlIugLBc79RartxZDeKkX229+4nxye/gSQw==
 
 react-native-view-shot@2.6.0:
   version "2.6.0"

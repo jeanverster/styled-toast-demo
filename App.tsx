@@ -2,26 +2,14 @@ import get from "lodash/get";
 import merge from "lodash/merge";
 import React from "react";
 import { Button } from "react-native";
-import { ToastProvider, useToast } from "react-native-styled-toast";
 import styled, { ThemeProvider } from "styled-components/native";
 import { color, ColorProps } from "styled-system";
+import ToastProvider, { ToastContext } from "./src/Context/index";
 
 const modes = ["default", "dark"];
 
 const theme = {
-  space: {
-    "0": "0",
-    "1": "4px",
-    "2": "8px",
-    "3": "12px",
-    "4": "16px",
-    "5": "20px",
-    "6": "24px",
-    "8": "32px",
-    "10": "40px",
-    "12": "48px",
-    "16": "64px"
-  },
+  space: [0, 4, 8, 12, 16, 20, 24, 32, 40, 48],
   colors: {
     text: "#0A0A0A",
     background: "#FFF",
@@ -49,37 +37,31 @@ const Wrapper = styled.View<ColorProps>`
   align-items: center;
 `;
 
-const Container: React.FC<{ toggleMode: () => void }> = ({ toggleMode }) => {
-  const { toast } = useToast();
-  return (
-    <Wrapper bg="background">
-      <Button
-        onPress={() =>
-          toast({
-            message: "Woo! This is a success toast.",
-            duration: 0,
-            bg: "muted",
-            closeButtonBgColor: "background"
-          })
-        }
-        title="Show Success Toast"
-      />
-      <Button
-        onPress={() =>
-          toast({
-            message: "Boo! This is an error toast.",
-            intent: "ERROR",
-            duration: 0,
-            bg: "muted",
-            closeButtonBgColor: "background"
-          })
-        }
-        title="Show Error Toast"
-      />
-      <Button onPress={toggleMode} title="Toggle Dark Mode" />
-    </Wrapper>
-  );
-};
+class Container extends React.Component {
+  // const { toast } = useToast();
+  render() {
+    return (
+      <Wrapper bg="background">
+        <ToastContext.Consumer>
+          {({ toast }) => {
+            return (
+              <React.Fragment>
+                <Button
+                  onPress={() =>
+                    toast({
+                      message: "Woo! This is a success toast."
+                    })
+                  }
+                  title="Show Success Toast"
+                />
+              </React.Fragment>
+            );
+          }}
+        </ToastContext.Consumer>
+      </Wrapper>
+    );
+  }
+}
 
 export default function App() {
   const getTheme = mode =>
